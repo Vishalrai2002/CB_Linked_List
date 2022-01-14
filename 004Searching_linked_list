@@ -2,6 +2,7 @@
 using namespace std;
 
 // LINK-LIST SEARCHING
+// Firstly we have to declare node class because this is not defined 
 
 class node {
 public:
