@@ -2,6 +2,16 @@
 
 using namespace std;
 // Kth node from end
+
+
+//Approach name "two pointer"
+/*
+. Intialise the slow and fast ptr form the head of the linked list
+. Then move fast ptr kth step from the head
+. Then start moving both slow and fast ptr until fast reaches at NULL.
+. When fast is at NULL then out slow ptr is at kth node form last step
+. Then simply return slow ptr.
+*/
 class node {
 public:
 
@@ -41,6 +51,8 @@ node* kthNodeFromEnd(node* head, int k) {
 
 	node* fast = head;
 	while(k-- && fast != NULL) {
+        // "k--" (we move the fast prt to kth step) 
+        //fast != NULL (to avoid to get exceeds the length of the linked list)
 		fast = fast->next;
 	}
 
@@ -77,6 +89,7 @@ int main() {
 
 	node* kthNode = kthNodeFromEnd(head, k);
 
+// kth node may be NULL to check this we use if condition then we print
 	if(kthNode != NULL) {
 		cout << kthNode->data << endl;
 	} else {
