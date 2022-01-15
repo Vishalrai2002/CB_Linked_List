@@ -41,7 +41,8 @@ node* getMidPoint(node* head) {
 	node* slow = head;
 	node* fast = head->next;
 
-	while(fast != NULL && fast->next != NULL) {
+	while(fast != NULL && fast->next != NULL) {  //  fast->next != NULL this condition is used of becacuse even linkedlist
+                                                    // or to avoid the to done the derefrence the NULL pointer
 		slow = slow->next;
 		fast = fast->next->next;
 	}
