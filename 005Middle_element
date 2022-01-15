@@ -68,7 +68,7 @@ int main() {
 	printLinkedList(head);
 
 	node* midPoint = getMidPoint(head);
-
+// midPoint may be NULL to avoid this we use if condition then we print
 	if(midPoint != NULL) {
 		cout << midPoint->data << endl;
 	} else {
