@@ -104,6 +104,7 @@ int main() {
 	checkCycle(head) ? cout << "Cycle is present" << endl :
 	                   cout << "Cycle is not present" << endl;
 
+// Removecycle function is when done when cycle is present in a linked list
 
 	if(checkCycle(head)) {
 		removeCycle(head);
