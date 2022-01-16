@@ -83,6 +83,7 @@ int main() {
 
 	printLinkedList(head);
 
+// we do reverse of the reverse linked list so that below output code is same as our previous linked list
 	head = reverseRecursive(head);
 
 	printLinkedList(head);
