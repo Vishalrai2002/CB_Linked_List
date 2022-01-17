@@ -56,14 +56,19 @@ node* bubbleSort(node* head) {
 				// swap the cur node with the tmp node
 				cur->next = tmp->next;
 				tmp->next = cur;
+				// below if condition is used to because if we need to swap our first element in linked list to swap
 				if(prev == NULL) {
 					head = tmp;
-				} else {
+				} 
+				// below else condition is used if we no need to swap our other element in linked list 
+				else {
 					prev->next = tmp;
 				}
 				prev = tmp;
 				tmp = cur->next;
-			} else {
+			}
+
+			 else {
 				// update the cur to point to the next node
 				prev = cur;
 				cur = cur->next;
