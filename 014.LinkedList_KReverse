@@ -1,7 +1,7 @@
 #include<iostream>
 
 using namespace std;
-// LinkedList_KReverse
+// LinkedList_K Reverse
 class node {
 public:
 
@@ -32,6 +32,9 @@ void printLinkedList(node* head) {
 
 node* kReverse(node* head, int k) {
 
+   if(!head){
+        return NULL;
+    }
 	// 1. reverse the first k nodes
 	node* cur = head;
 	node* prev = NULL;
@@ -55,7 +58,7 @@ node* kReverse(node* head, int k) {
 int main() {
 
 	node* head = NULL;
-
+    insertAtHead(head, 60);
 	insertAtHead(head, 50);
 	insertAtHead(head, 40);
 	insertAtHead(head, 30);
@@ -63,8 +66,10 @@ int main() {
 	insertAtHead(head, 10);
 
 	printLinkedList(head);
-
 	int k = 2;
+    
+    head = kReverse(head, k);
 
+	printLinkedList(head);
 	return 0;
 }
