@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+
+// INPUTS
+// 5
+// 10 20 30 40 50
+
+class node{
+   public:
+   int data;
+   node* next;
+   node (int data)
+   {
+       this->data=data;
+       this->next=NULL;
+   }
+};
+
+void insertathead(node*& head,int data)
+{
+    node*n=new node (data);
+    n->next=head;
+    head=n;
+}
+
+
+node * gettail(node*tail)
+{
+    while(tail->next)
+    {
+        tail=tail->next;
+
+    }
+    return tail;
+}
+void insertattail(node *&head,int data)
+{
+    if(!head)
+    {
+        insertathead(head,data);
+        return;
+    }
+    node *tail=gettail(head);
+    node*n=new node(data);
+    tail->next=n;
+}
+
+void printlinkedlist(node *head)
+{
+    while(head)
+    {
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+    cout<<endl;
+}
+int main()
+{
+    node *head=NULL;
+   int n;
+   cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   for(int i=0;i<n;i++)
+   {
+    //    insertathead(head,arr[i]); // 50 40 30 20 10 
+       insertattail(head,arr[i]);  // 10 20 30 40 50 
+   }
+
+    printlinkedlist(head);
+    return 0;
+}
