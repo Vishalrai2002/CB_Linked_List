@@ -44,7 +44,7 @@ node* rotateLinkedList(node* head, int k) {
 		tail = tail->next;
 		n++;
 	}
-	tail->next = head;
+	tail->next = head; // Formed a loop
 
 	// 2. get hold of the pointer to the newTail which can
 	// be found at the (n-(k%n)-1)th index
