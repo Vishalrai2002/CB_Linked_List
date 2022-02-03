@@ -36,22 +36,24 @@ node* sumOfLinkedList(node* head1, node* head2) {
 	node* tail = NULL; // tail of the final ans
 	int carry  = 0;
 
-	while(head1 != NULL && head2 != NULL) {
-		int sum = head1->data + head2->data + carry;
+	while(head1 != NULL && head2 != NULL) { // Iterate over the both linkedlist
+		int sum = head1->data + head2->data + carry; // Extract there data and add with carry
 		carry = sum/10;
-		node* n = new node(sum%10);
+		node* n = new node(sum%10); // created new node with the upper sum
 		
-		if(head == NULL) {
+		if(head == NULL) { // if head=null then all are point to n
 			head = tail = n;
-		} else {
+		} else { // if head!=null then tail ke next me n dal do fir tail =n; kr do
 			tail->next = n;
 			tail = n;
 		}
-
+// one you have done that then move forward
 		head1 = head1->next;
 		head2 = head2->next;
 	}
 
+
+// agar head1 me kuch element bache hue hai toh i do same work as i do upper but only for head 1
 	while(head1 != NULL) {
 		int sum = head1->data + carry;
 		carry = sum/10;
@@ -67,6 +69,7 @@ node* sumOfLinkedList(node* head1, node* head2) {
 		head1 = head1->next;
 	}
 
+// agar head2 me kuch element bache hue hai toh i do same work as i do upper but only for head 2
 
 	while(head2 != NULL) {
 		int sum = head2->data + carry;
@@ -83,8 +86,8 @@ node* sumOfLinkedList(node* head1, node* head2) {
 		head2 = head2->next;
 	}
 
-	if(carry) {
-		node* n = new node(carry);
+	if(carry) { // if carry exist like while adding 999 and 999 then one carry remain so sipmly add to tail
+		node* n = new node(carry); // created a new node with this (carry or "1")
 		if(head == NULL) {
 			head = tail = n;
 		} else {
@@ -97,7 +100,8 @@ node* sumOfLinkedList(node* head1, node* head2) {
 
 }
 
-node* sumOfLinkedList(node* head1, node* head2) {
+// another method to calculate the sum of the two linkedlist
+node* sumOfLinkedList2(node* head1, node* head2) {
 
 	node* head = NULL;
 	node* tail = NULL;
@@ -151,6 +155,11 @@ int main() {
 	printLinkedList(head2);
 
 	node* head = sumOfLinkedList(head1, head2);
+
+	printLinkedList(head);
+
+	
+	node* headsecond = sumOfLinkedList2(head1, head2);
 
 	printLinkedList(head);
 
