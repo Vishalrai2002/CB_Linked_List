@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 // INPUTS
 // 5
 // 10 20 30 40 50
